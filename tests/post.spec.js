@@ -7,7 +7,7 @@ let describe = mocha.describe;
 let it = mocha.it;
 let expect = chakram.expect;
 
-describe("With POST", function() {
+describe("POST", function() {
   before(done => {
     console.log("before post");
     done();
@@ -17,7 +17,7 @@ describe("With POST", function() {
     done();
   });
 
-  it("get random object", function () {
+  it("with nothing", function () {
     let response = chakram.post("http://localhost:8080/");
     expect(response).to.have.status(200);
     expect(response).to.have.header("content-type", "application/json");
@@ -25,33 +25,29 @@ describe("With POST", function() {
     return chakram.wait();
   });
 
-  it("get defined object", function () {
-    let response = chakram.post("http://localhost:8080/?test=chakram", {tesvvt: 'value1'});
+  it("with string", function () {
+    let response = chakram.post("http://localhost:8080/", 'value1');
     expect(response).to.have.status(200);
     expect(response).to.have.header("content-type", "application/json");
-    expect(response).to.comprise.of.json({test: "chakram" });
     return chakram.wait();
   });
 
-  it("get defined list of objects", function () {
-    let response = chakram.post("http://localhost:8080/", {test: 'chadkram'});
+  it("with empty array", function () {
+    let response = chakram.post("http://localhost:8080/", {length: 0});
     expect(response).to.have.status(200);
     expect(response).to.have.header("content-type", "application/json");
-    expect(response).to.have.json("test", () => true);
     return chakram.wait();
   });
-  it("should make HTTP assertions easy", function () {
-    let response = chakram.post("http://localhost:8080/", {test: 'chakram'});
+  it("with object", function () {
+    let response = chakram.post("http://localhost:8080/", {pattern: 'chakram'});
     expect(response).to.have.status(200);
     expect(response).to.have.header("content-type", "application/json");
-    expect(response).to.comprise.of.json({test: "chakram" });
     return chakram.wait();
   });
-  it("should make HTTP assertions easy", function () {
-    let response = chakram.post("http://localhost:8080/", {test: 'chakram'});
+  it("with complex array of object", function () {
+    let response = chakram.post("http://localhost:8080/", {length: 5, test: "sdff", poi: "date"});
     expect(response).to.have.status(200);
     expect(response).to.have.header("content-type", "application/json");
-    expect(response).to.comprise.of.json({test: "chakram" });
     return chakram.wait();
   });
 });

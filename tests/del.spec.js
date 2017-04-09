@@ -5,7 +5,7 @@ let describe = mocha.describe;
 let it = mocha.it;
 let expect = chakram.expect;
 
-describe("With DEL", function() {
+describe("DEL", function() {
   it("Get random object", function () {
     let response = chakram.del("http://localhost:8080/");
     expect(response).to.have.status(200);

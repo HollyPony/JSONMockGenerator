@@ -8,7 +8,7 @@ let it = mocha.it;
 let expect = chakram.expect;
 
 
-describe("With PUT", function() {
+describe("PUT", function() {
   before(done => {
     console.log("before put");
     done();

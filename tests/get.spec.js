@@ -7,7 +7,7 @@ let describe = mocha.describe;
 let it = mocha.it;
 let expect = chakram.expect;
 
-describe("With GET", function() {
+describe("GET", function() {
 
   before(done => {
     console.log("before get");
@@ -20,7 +20,7 @@ describe("With GET", function() {
   });
 
   // Get from url value
-  it("Get random object", function () {
+  it("with nothing", function () {
     let response = chakram.get("http://localhost:8080/");
     expect(response).to.have.status(200);
     expect(response).to.have.header("content-type", "application/json");
@@ -28,7 +28,7 @@ describe("With GET", function() {
     return chakram.wait();
   });
   // Get from url value
-  it("Get defined object", function () {
+  it("with defined object", function () {
     let response = chakram.get("http://localhost:8080/?test=chakram");
     expect(response).to.have.status(200);
     expect(response).to.have.header("content-type", "application/json");
