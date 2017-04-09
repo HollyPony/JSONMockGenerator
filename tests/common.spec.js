@@ -8,7 +8,6 @@ let config = require('./config.js');
 
 module.exports = function (method) {
   it("with nothing", function () {
-    console.log('-->', config.target); // todo
     let response = chakram[method](config.target);
     expect(response).to.have.status(200);
     expect(response).to.have.header("content-type", "application/json");
