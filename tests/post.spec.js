@@ -38,13 +38,15 @@ describe("POST", function() {
     expect(response).to.have.header("content-type", "application/json");
     return chakram.wait();
   });
+
   it("with object", function () {
     let response = chakram.post("http://localhost:8080/", {pattern: 'chakram'});
     expect(response).to.have.status(200);
     expect(response).to.have.header("content-type", "application/json");
     return chakram.wait();
   });
-  it("with complex array of object", function () {
+
+  it("with array of object", function () {
     let response = chakram.post("http://localhost:8080/", {"__length": 5, test: "sdff", poi: "date"});
     expect(response).to.have.status(200);
     expect(response).to.have.header("content-type", "application/json");
@@ -56,6 +58,14 @@ describe("POST", function() {
     let response = chakram.post("http://localhost:8080/", {test1: 0});
     expect(response).to.have.status(200);
     expect(response).to.have.header("content-type", "application/json");
+    return chakram.wait();
+  });
+
+  it("with two levels array of object", function () {
+    let response = chakram.post("http://localhost:8080/", {"__length": 5, test: "sdff", poi: "date", inside: {"__length": 5, test: "sdff", poi: "date"}});
+    expect(response).to.have.status(200);
+    expect(response).to.have.header("content-type", "application/json");
+    expect(response).to.have.schema({"type": "array"});
     return chakram.wait();
   });
 });
