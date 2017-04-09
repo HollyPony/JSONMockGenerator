@@ -1,5 +1,6 @@
 import restify from 'restify';
 import Chance from 'chance';
+import logger from 'morgan'
 
 const chance = new Chance();
 
@@ -7,6 +8,7 @@ const server = restify.createServer();
 server.use(restify.CORS());
 server.use(restify.queryParser());
 server.use(restify.bodyParser());
+server.use(logger('common'));
 
 server.get(/.*/, passHere);
 server.post(/.*/, passHere);
