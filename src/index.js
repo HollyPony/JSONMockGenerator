@@ -1,6 +1,9 @@
 import restify from 'restify';
+import Chance from 'chance';
 
-let server = restify.createServer();
+const chance = new Chance();
+
+const server = restify.createServer();
 server.use(restify.CORS());
 server.use(restify.queryParser());
 server.use(restify.bodyParser());
@@ -15,13 +18,12 @@ server.listen(8080, function() {
 });
 
 function passHere(req, res, next) {
-  console.log(req.params && Object.keys(req.params).length > 0);
   res.send(req.params && Object.keys(req.params).length > 0 && parseParams(req.params) || createRandom());
   next();
 }
 
 function createRandom() {
-  return {id: ""}
+  return {id: chance.natural()}
 }
 
 function parseParams(params) {
