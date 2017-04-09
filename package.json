@@ -22,7 +22,7 @@
     "build": "babel src -s -D -d dist --presets es2015,stage-0",
     "start": "node dist",
     "prestart": "npm run -s build",
-    "test": "eslint src && mocha $(find tests -name '*.spec.js')"
+    "test": "eslint src && mocha tests/index.spec.js"
   },
   "homepage": "https://github.com/HollyPony/JSONMockGenerator#readme",
   "dependencies": {
