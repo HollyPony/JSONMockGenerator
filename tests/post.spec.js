@@ -8,6 +8,7 @@ let it = mocha.it;
 let expect = chakram.expect;
 
 let config = require('./config.js');
+let common = require('./common.spec');
 
 describe("POST", function() {
   before(done => {
@@ -19,13 +20,7 @@ describe("POST", function() {
     done();
   });
 
-  it("with nothing", function () {
-    let response = chakram.post(config.target);
-    expect(response).to.have.status(200);
-    expect(response).to.have.header("content-type", "application/json");
-    expect(response).to.have.json("id", () => true);
-    return chakram.wait();
-  });
+  common("post");
 
   it("with string", function () {
     let response = chakram.post(config.target, 'value1');

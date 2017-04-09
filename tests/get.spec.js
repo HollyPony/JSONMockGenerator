@@ -8,6 +8,7 @@ let it = mocha.it;
 let expect = chakram.expect;
 
 let config = require('./config.js');
+let common = require('./common.spec');
 
 describe("GET", function() {
 
@@ -21,15 +22,8 @@ describe("GET", function() {
     done();
   });
 
-  // Get from url value
-  it("with nothing", function () {
-    let response = chakram.get(config.target);
-    expect(response).to.have.status(200);
-    expect(response).to.have.header("content-type", "application/json");
-    expect(response).to.have.json("id", () => true);
-    return chakram.wait();
-  });
-  // Get from url value
+  common("get");
+
   it("with defined object", function () {
     let response = chakram.get(config.target + "?test=chakram");
     expect(response).to.have.status(200);
