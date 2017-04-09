@@ -29,6 +29,10 @@
     "chance": "^1.0.6",
     "restify": "^4.3.0"
   },
+  "engines": {
+    "node": "7.8.0",
+    "npm": "4.2.x"
+  },
   "devDependencies": {
     "babel-cli": "^6.9.0",
     "babel-core": "^6.9.0",
