@@ -1,0 +1,24 @@
+{
+  "name": "json-mock-generator",
+  "version": "0.0.0",
+  "description": "A customizable mock api",
+  "main": "app/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/github/sdfsdf.git"
+  },
+  "keywords": [
+    "api",
+    "rest",
+    "mock"
+  ],
+  "author": "HollyPony <arthur.agombart@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/github/sdfsdf/issues"
+  },
+  "homepage": "https://github.com/github/sdfsdf#readme"
+}
