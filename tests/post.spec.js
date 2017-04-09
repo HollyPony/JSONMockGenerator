@@ -45,9 +45,10 @@ describe("POST", function() {
     return chakram.wait();
   });
   it("with complex array of object", function () {
-    let response = chakram.post("http://localhost:8080/", {length: 5, test: "sdff", poi: "date"});
+    let response = chakram.post("http://localhost:8080/", {"__length": 5, test: "sdff", poi: "date"});
     expect(response).to.have.status(200);
     expect(response).to.have.header("content-type", "application/json");
+    expect(response).to.have.schema({"type": "array"});
     return chakram.wait();
   });
 });

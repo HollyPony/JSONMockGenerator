@@ -19,12 +19,14 @@ server.listen(8080, function() {
   console.log('%s listening at %s', server.name, server.url);
 });
 
-const times = x=> f=> {
-  if (x > 0) {
-    f();
-    times (x - 1) (f);
+function times(length, iteratee) {
+  let index = -1;
+  const result = new Array(length);
+  while (++index < length) {
+    result[index] = iteratee(index)
   }
-};
+  return result
+}
 
 function passHere(req, res, next) {
   res.send(req.params && Object.keys(req.params).length > 0 && parseParams(req.params) || createRandom());
@@ -40,10 +42,10 @@ function parseParams(params) {
     return parseObject({});
   } else if (typeof params === "string") {
     return params;
-  } else if (params.length) {
-    let length = params.length;
-    delete params.length;
-    return times(length)(() => parseObject(params));
+  } else if (params['__length']) {
+    let length = params['__length'];
+    delete params['__length'];
+    return times(length, () => parseObject(params));
   } else {
     return parseObject(params);
   }
@@ -62,7 +64,6 @@ function parseObject(obj) {
       result[key] = value;
     }
   });
-  console.log(result);
   return result;
 }
 
