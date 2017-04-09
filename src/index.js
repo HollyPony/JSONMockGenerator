@@ -19,17 +19,9 @@ server.listen(8080, function() {
   console.log('%s listening at %s', server.name, server.url);
 });
 
-function times(length, iteratee) {
-  let index = -1;
-  const result = new Array(length);
-  while (++index < length) {
-    result[index] = iteratee(index)
-  }
-  return result
-}
-
 function passHere(req, res, next) {
-  res.send(req.params && Object.keys(req.params).length > 0 && parseParams(req.params) || createRandom());
+  res.send((req.params && Object.keys(req.params).length > 0)
+    ? parseParams(req.params) : createRandom());
   next();
 }
 
@@ -39,13 +31,11 @@ function createRandom() {
 
 function parseParams(params) {
   if (!params) {
-    return parseObject({});
+    return parseObject();
   } else if (typeof params === "string") {
     return params;
-  } else if (params['__length']) {
-    let length = params['__length'];
-    delete params['__length'];
-    return times(length, () => parseObject(params));
+  } else if (params['__length'] && params['__length'] > 1) {
+    return Array.apply(null, new Array(params['__length'])).map(() => parseObject(params));
   } else {
     return parseObject(params);
   }
@@ -57,12 +47,13 @@ function parseObject(obj) {
     if (key.startsWith('_')) return;
 
     const value = obj[key];
-    if (chance[value]) {
-      const valueOptions = obj['_' + key];
-      result[key] = chance[value](valueOptions);
-    } else {
-      result[key] = value;
-    }
+    result[key] = typeof value === 'number'
+      ? value
+      : typeof value === "string"
+        ? (chance[value])
+          ? chance[value](obj['_' + key])
+          : value
+        : parseParams(value);
   });
   return result;
 }

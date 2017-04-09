@@ -33,7 +33,7 @@ describe("POST", function() {
   });
 
   it("with empty array", function () {
-    let response = chakram.post("http://localhost:8080/", {length: 0});
+    let response = chakram.post("http://localhost:8080/", {"__length": 0});
     expect(response).to.have.status(200);
     expect(response).to.have.header("content-type", "application/json");
     return chakram.wait();
@@ -49,6 +49,13 @@ describe("POST", function() {
     expect(response).to.have.status(200);
     expect(response).to.have.header("content-type", "application/json");
     expect(response).to.have.schema({"type": "array"});
+    return chakram.wait();
+  });
+
+  it("with value number typed", function () {
+    let response = chakram.post("http://localhost:8080/", {test1: 0});
+    expect(response).to.have.status(200);
+    expect(response).to.have.header("content-type", "application/json");
     return chakram.wait();
   });
 });
