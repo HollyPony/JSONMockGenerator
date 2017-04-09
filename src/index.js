@@ -20,8 +20,10 @@ server.listen(8080, function() {
 });
 
 function passHere(req, res, next) {
-  res.send((req.params && Object.keys(req.params).length > 0)
-    ? parseParams(req.params) : createRandom());
+  const result = (req.params && Object.keys(req.params).length > 0)
+    ? parseParams(req.params) : createRandom();
+  //console.log(result);
+  res.send(result);
   next();
 }
 
