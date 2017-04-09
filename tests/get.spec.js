@@ -7,6 +7,8 @@ let describe = mocha.describe;
 let it = mocha.it;
 let expect = chakram.expect;
 
+let config = require('./config.js');
+
 describe("GET", function() {
 
   before(done => {
@@ -21,7 +23,7 @@ describe("GET", function() {
 
   // Get from url value
   it("with nothing", function () {
-    let response = chakram.get("http://localhost:8080/");
+    let response = chakram.get(config.target);
     expect(response).to.have.status(200);
     expect(response).to.have.header("content-type", "application/json");
     expect(response).to.have.json("id", () => true);
@@ -29,7 +31,7 @@ describe("GET", function() {
   });
   // Get from url value
   it("with defined object", function () {
-    let response = chakram.get("http://localhost:8080/?test=chakram");
+    let response = chakram.get(config.target + "?test=chakram");
     expect(response).to.have.status(200);
     expect(response).to.have.header("content-type", "application/json");
     expect(response).to.comprise.of.json({test: "chakram" });
