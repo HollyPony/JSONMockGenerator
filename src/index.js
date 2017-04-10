@@ -20,20 +20,15 @@ server.listen(process.env.PORT || 8080, function() {
 });
 
 function passHere(req, res, next) {
-  const result = (req.params && Object.keys(req.params).length > 0)
-    ? parseParams(req.params) : createRandom();
-  //console.log(result);
+  const result = parseParams(req.params);
+  console.log(result);
   res.send(result);
   next();
 }
 
-function createRandom() {
-  return {id: chance.natural()}
-}
-
 function parseParams(params) {
   if (!params) {
-    return parseObject();
+    return parseObject({});
   } else if (typeof params === "string") {
     return params;
   } else if (params['__length'] && params['__length'] > 1) {
@@ -44,8 +39,8 @@ function parseParams(params) {
 }
 
 function parseObject(obj) {
-  const result= {};
-  Object.keys(obj).map(key => {
+  const result = (obj && Object.keys(obj).length > 0) ? {} : {id: chance.natural()};
+  obj && Object.keys(obj).forEach(key => {
     if (key.startsWith('_')) return;
 
     const value = obj[key];
