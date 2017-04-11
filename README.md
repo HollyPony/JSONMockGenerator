@@ -82,13 +82,17 @@ Call :
 }
 ```
 
-[Demo](https://jmgen.herokuapp.com/?__length=3)
+[Demo](https://jmgen.herokuapp.com/?name=name&date=birthday&cite=city&genre=male)
 
 Result :
 
 ```
 {
-  "name":"Nell Pittman","date":"1972-12-25T15:53:38.118Z","cite":"Seecivoc","genre":"male"}
+  "name":"Nell Pittman",
+  "date":"1972-12-25T15:53:38.118Z",
+  "cite":"Seecivoc",
+  "genre":"male"
+}
 ```
 
 #### Get an object list
@@ -97,15 +101,39 @@ Call :
 
 ```
 {
+  "__length": 3
+  "name": "name",
+  "birthday": "birthday",
+  "city": "city",
+  "genre": "male"
 }
 ```
 
-[Demo](https://jmgen.herokuapp.com/?__length=3)
+[Demo](https://jmgen.herokuapp.com/?__length=3&name=name&date=birthday&city=city&genre=male)
+
 
 Result :
 
 ```
 [
+  {
+    "name":"Alberta Ruiz",
+    "date":"1982-02-27T23:42:45.881Z",
+    "city":"Bizhugge",
+    "genre":"male"
+  },
+  {
+    "name":"Sean Dennis",
+    "date":"1953-07-16T23:43:14.530Z",
+    "city":"Lufrirno",
+    "genre":"male"
+  },
+  {
+    "name":"Nancy Stevenson",
+    "date":"1976-09-01T10:47:20.845Z",
+    "city":"Takufe",
+    "genre":"male"
+  }
 ]
 ```
 
