@@ -31,15 +31,15 @@ function parseParams(params) {
     return parseObject({});
   } else if (typeof params === "string") {
     return params;
-  } else if (params['__length'] && params['__length'] > 1) {
-    return Array.apply(null, new Array(params['__length'])).map(() => parseObject(params));
+  } else if (params['__length'] && parseInt(params['__length']) > 1) {
+    return Array.apply(null, new Array(parseInt(params['__length']))).map(() => parseObject(params));
   } else {
     return parseObject(params);
   }
 }
 
 function parseObject(obj) {
-  const result = (obj && Object.keys(obj).length > 0) ? {} : {id: chance.natural()};
+  const result = {};
   obj && Object.keys(obj).forEach(key => {
     if (key.startsWith('_')) return;
 
@@ -52,7 +52,7 @@ function parseObject(obj) {
           : value
         : parseParams(value);
   });
-  return result;
+  return Object.keys(result).length > 0 && result || {id: chance.natural()};
 }
 
 export default server;
