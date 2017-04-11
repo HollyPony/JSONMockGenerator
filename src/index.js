@@ -10,16 +10,16 @@ server.use(restify.queryParser());
 server.use(restify.bodyParser());
 server.use(logger('common'));
 
-server.get(/.*/, passHere);
-server.post(/.*/, passHere);
-server.put(/.*/, passHere);
-server.del(/.*/, passHere);
+server.get(/.*/, parseRequest);
+server.post(/.*/, parseRequest);
+server.put(/.*/, parseRequest);
+server.del(/.*/, parseRequest);
 
 server.listen(process.env.PORT || 8080, function() {
   console.log('%s listening at %s', server.name, server.url);
 });
 
-function passHere(req, res, next) {
+function parseRequest(req, res, next) {
   const result = parseParams(req.params);
   console.log(result);
   res.send(result);
