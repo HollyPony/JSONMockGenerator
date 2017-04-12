@@ -31,8 +31,8 @@ function parseParams(params) {
     return parseObject({});
   } else if (typeof params === "string") {
     return params;
-  } else if (params['__length'] && parseInt(params['__length']) > 1) {
-    return Array.apply(null, new Array(parseInt(params['__length']))).map(() => parseObject(params));
+  } else if (params['_length'] && parseInt(params['_length']) > 1) {
+    return Array.apply(null, new Array(parseInt(params['_length']))).map(() => parseObject(params));
   } else {
     return parseObject(params);
   }

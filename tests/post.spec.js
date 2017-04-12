@@ -30,7 +30,7 @@ describe("POST", function() {
   });
 
   it("with empty array", function () {
-    let response = chakram.post(config.target, {"__length": 0});
+    let response = chakram.post(config.target, {"_length": 0});
     expect(response).to.have.status(200);
     expect(response).to.have.header("content-type", "application/json");
     return chakram.wait();
@@ -44,7 +44,7 @@ describe("POST", function() {
   });
 
   it("with array of object with params", function () {
-    let response = chakram.post(config.target, {"__length": 5, test: "sdff", poi: "date", "_poi": {year: 1983}});
+    let response = chakram.post(config.target, {"_length": 5, test: "sdff", poi: "date", "_poi": {year: 1983}});
     expect(response).to.have.status(200);
     expect(response).to.have.header("content-type", "application/json");
     expect(response).to.have.schema({"type": "array"});
@@ -59,7 +59,7 @@ describe("POST", function() {
   });
 
   it("with two levels array of object", function () {
-    let response = chakram.post(config.target, {"__length": 5, test: "sdff", poi: "date", inside: {"__length": 5, test: "sdff", poi: "date"}});
+    let response = chakram.post(config.target, {"_length": 5, test: "sdff", poi: "date", inside: {"_length": 5, test: "sdff", poi: "date"}});
     expect(response).to.have.status(200);
     expect(response).to.have.header("content-type", "application/json");
     expect(response).to.have.schema({"type": "array"});

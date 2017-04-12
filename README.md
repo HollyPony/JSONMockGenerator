@@ -53,11 +53,11 @@ Call :
 
 ```
 {
-  "__length": 3
+  "_length": 3
 }
 ```
 
-[Demo](https://jmgen.herokuapp.com/?__length=3)
+[Demo](https://jmgen.herokuapp.com/?_length=3)
 
 Result :
 
@@ -101,7 +101,7 @@ Call :
 
 ```
 {
-  "__length": 3
+  "_length": 3
   "name": "name",
   "birthday": "birthday",
   "city": "city",
@@ -109,7 +109,7 @@ Call :
 }
 ```
 
-[Demo](https://jmgen.herokuapp.com/?__length=3&name=name&date=birthday&city=city&genre=male)
+[Demo](https://jmgen.herokuapp.com/?_length=3&name=name&date=birthday&city=city&genre=male)
 
 
 Result :
