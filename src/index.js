@@ -1,6 +1,6 @@
-import restify from 'restify';
-import Chance from 'chance';
-import logger from 'morgan'
+const restify = require('restify');
+const Chance = require('chance');
+const logger = require('morgan');
 
 const chance = new Chance();
 
@@ -15,7 +15,7 @@ server.post(/.*/, parseRequest);
 server.put(/.*/, parseRequest);
 server.del(/.*/, parseRequest);
 
-server.listen(process.env.PORT || 8080, function() {
+server.listen(process.env.PORT || 8080, () => {
   console.log('%s listening at %s', server.name, server.url);
 });
 
@@ -55,4 +55,4 @@ function parseObject(obj) {
   return Object.keys(result).length > 0 && result || {id: chance.natural()};
 }
 
-export default server;
+module.exports = server;
