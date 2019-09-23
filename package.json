@@ -37,6 +37,6 @@
     "mocha": "3.4.2",
     "morgan": "1.8.2",
     "nodemon": "1.11.0",
-    "restify": "4.3.1"
+    "restify": "8.1.0"
   }
 }
