@@ -36,7 +36,7 @@
     "eslint": "4.3.0",
     "mocha": "3.4.2",
     "morgan": "1.8.2",
-    "nodemon": "1.11.0",
+    "nodemon": "1.14.11",
     "restify": "4.3.1"
   }
 }
