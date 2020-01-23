@@ -23,9 +23,7 @@
   },
   "scripts": {
     "serve": "nodemon -w src --exec \"node src\"",
-    "build": "node src -s -D -d dist",
-    "start": "node dist",
-    "prestart": "npm run -s build",
+    "start": "node src",
     "test": "eslint src && mocha tests/index.spec.js",
     "test:heroku": "TARGET=https://jmgen.herokuapp.com/ mocha tests/index.spec.js"
   },
