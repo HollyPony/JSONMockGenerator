@@ -27,6 +27,10 @@ Powered by [Node-restify](https://github.com/restify/node-restify) and [ChanceJS
 
 Most of features are shown as sample. For further documentation refer to [ChanceJS](https://github.com/chancejs/chancejs).
 
+For list use `_length=[listsize]`
+
+For object use `{property: value}`. Value can be a ChanceJs function like name. So `{login: 'name'}` result to a `{login: 'randomName'}`
+
 ## Examples
 
 ### Get a random object
