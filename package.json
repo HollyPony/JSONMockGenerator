@@ -18,8 +18,8 @@
   },
   "main": "dist",
   "engines": {
-    "node": "8.2.1",
-    "npm": "5.3.0"
+    "node": "13.6.0",
+    "npm": "6.13.4"
   },
   "scripts": {
     "serve": "nodemon -w src --exec \"node src\"",
