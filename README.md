@@ -6,7 +6,7 @@ The idea is to configure the return values in body request. Watether the type an
 
 The API doesn't matter the HTTP method used and the nested route called.
 
-Online endpoint available at [https://jmgen.herokuapp.com/]()
+Online endpoint available at [jmgen.herokuapp.com/](https://jmgen.herokuapp.com/)
 
 Powered by [Node-restify](https://github.com/restify/node-restify) and [ChanceJS](https://github.com/chancejs/chancejs)
 
@@ -20,48 +20,40 @@ Powered by [Node-restify](https://github.com/restify/node-restify) and [ChanceJS
 ## Installation
 
 - Clone project locally
-- Do `npm install` with version of node installed > 6
+- Do `npm install` with version of node installed > 13
 - Run in debug with `npm run serve` or start a server with `npm start`
 
 ## API Doc
 
-If nothing
-
-TODO
+Most of features are shown as sample. For further documentation refer to [ChanceJS](https://github.com/chancejs/chancejs).
 
 ## Examples
 
-#### Get a random object
+### Get a random object
 
-Call :
+Call:
 
-```{}```
-
-[Demo](https://jmgen.herokuapp.com/)
+- Local test: [`GET localhost:8080`](http://localhost:8080)
+- Online demo: [`GET jmgen.herokuapp.com`](https://jmgen.herokuapp.com)
 
 Result:
 
-```
+```json
 {
   "id": 2263426013331456
 }
 ```
 
-#### Get a list
+### Get a list
 
-Call :
+Call:
 
-```
-{
-  "_length": 3
-}
-```
+- [`GET localhost:8080?_length=3`](http://localhost:8080?_length=3)
+- [`GET jmgen.herokuapp.com?_length=3`](https://jmgen.herokuapp.com?_length=3)
 
-[Demo](https://jmgen.herokuapp.com/?_length=3)
+Result:
 
-Result :
-
-```
+```json
 [
   { id: 4669038997274624 },
   { id: 2258162581241856 },
@@ -69,11 +61,11 @@ Result :
 ]
 ```
 
-#### Get an object
+### Get an object
 
-Call :
+Call:
 
-```
+```json
 {
   "name": "name",
   "birthday": "birthday",
@@ -82,11 +74,12 @@ Call :
 }
 ```
 
-[Demo](https://jmgen.herokuapp.com/?name=name&date=birthday&cite=city&genre=male)
+- Local test: [localhost:8080/?name=name&date=birthday&cite=city&genre=male](http://localhost:8080/?name=name&date=birthday&cite=city&genre=male)
+- Online demo: [jmgen.herokuapp.com/?name=name&date=birthday&cite=city&genre=male](https://jmgen.herokuapp.com/?name=name&date=birthday&cite=city&genre=male)
 
-Result :
+Result:
 
-```
+```json
 {
   "name":"Nell Pittman",
   "date":"1972-12-25T15:53:38.118Z",
@@ -95,13 +88,13 @@ Result :
 }
 ```
 
-#### Get an object list
+### Get an object list
 
-Call :
+Call:
 
-```
+```json
 {
-  "_length": 3
+  "_length": 3,
   "name": "name",
   "birthday": "birthday",
   "city": "city",
@@ -109,12 +102,12 @@ Call :
 }
 ```
 
-[Demo](https://jmgen.herokuapp.com/?_length=3&name=name&date=birthday&city=city&genre=male)
+- Local test: [`GET localhost:8080/?_length=3&name=name&date=birthday&city=city&genre=male`](http://localhost:8080/?_length=3&name=name&date=birthday&city=city&genre=male)
+- Online demo: [`GET jmgen.herokuapp.com/?_length=3&name=name&date=birthday&city=city&genre=male`](https://jmgen.herokuapp.com/?_length=3&name=name&date=birthday&city=city&genre=male)
 
+Result:
 
-Result :
-
-```
+```json
 [
   {
     "name":"Alberta Ruiz",
@@ -136,8 +129,6 @@ Result :
   }
 ]
 ```
-
-
 
 ## Roadmap
 
