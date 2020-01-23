@@ -21,6 +21,18 @@ const execute = (method = 'get', params = 'query') => {
         })
     })
 
+    it("with deep url", done => {
+      chai.request(server)[method]('/deep/url.with.weird/pah.but.valid')
+        .end((err, res) => {
+          expect(err).to.be.null
+          expect(res).to.have.status(200)
+          expect(res).to.be.json
+          expect(res).to.have.header('content-type', 'application/json')
+          expect(res.body).to.have.property('id')
+          done()
+        })
+    })
+
     it("with string", done => {
       chai.request(server)[method]('/')[params]('value1')
         .end((err, res) => {
@@ -143,11 +155,7 @@ const execute = (method = 'get', params = 'query') => {
 
 describe("JSONMock", () => {
   execute('get', 'query')
-  // require('./get.spec')
   execute('post', 'send')
   execute('put', 'send')
   execute('delete', 'send')
-  // require('./post.spec')
-  // require('./put.spec')
-  // require('./del.spec')
 })

@@ -24,8 +24,7 @@
   "scripts": {
     "serve": "nodemon -w src --exec \"node src\"",
     "start": "node src",
-    "test": "eslint src && mocha tests/index.spec.js",
-    "test:heroku": "TARGET=https://jmgen.herokuapp.com/ mocha tests/index.spec.js"
+    "test": "eslint src && mocha"
   },
   "homepage": "https://github.com/HollyPony/JSONMockGenerator#readme",
   "dependencies": {
