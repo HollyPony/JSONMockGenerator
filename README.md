@@ -55,9 +55,9 @@ Result:
 
 ```json
 [
-  { id: 4669038997274624 },
-  { id: 2258162581241856 },
-  { id: 3514527639404544 }
+  { "id": 4669038997274624 },
+  { "id": 2258162581241856 },
+  { "id": 3514527639404544 }
 ]
 ```
 
@@ -81,10 +81,10 @@ Result:
 
 ```json
 {
-  "name":"Nell Pittman",
-  "date":"1972-12-25T15:53:38.118Z",
-  "cite":"Seecivoc",
-  "genre":"male"
+  "name": "Nell Pittman",
+  "date": "1972-12-25T15:53:38.118Z",
+  "cite": "Seecivoc",
+  "genre": "male"
 }
 ```
 
@@ -110,22 +110,22 @@ Result:
 ```json
 [
   {
-    "name":"Alberta Ruiz",
-    "date":"1982-02-27T23:42:45.881Z",
-    "city":"Bizhugge",
-    "genre":"male"
+    "name": "Alberta Ruiz",
+    "date": "1982-02-27T23:42:45.881Z",
+    "city": "Bizhugge",
+    "genre": "male"
   },
   {
-    "name":"Sean Dennis",
-    "date":"1953-07-16T23:43:14.530Z",
-    "city":"Lufrirno",
-    "genre":"male"
+    "name": "Sean Dennis",
+    "date": "1953-07-16T23:43:14.530Z",
+    "city": "Lufrirno",
+    "genre": "male"
   },
   {
-    "name":"Nancy Stevenson",
-    "date":"1976-09-01T10:47:20.845Z",
-    "city":"Takufe",
-    "genre":"male"
+    "name": "Nancy Stevenson",
+    "date": "1976-09-01T10:47:20.845Z",
+    "city": "Takufe",
+    "genre": "male"
   }
 ]
 ```
