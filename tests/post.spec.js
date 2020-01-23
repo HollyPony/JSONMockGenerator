@@ -10,7 +10,7 @@ let expect = chakram.expect;
 let config = require('./config.js');
 let common = require('./common.spec');
 
-describe("POST", function() {
+describe("POST", function () {
   before(done => {
     console.log("before post");
     done();
@@ -30,39 +30,39 @@ describe("POST", function() {
   });
 
   it("with empty array", function () {
-    let response = chakram.post(config.target, {"_length": 0});
+    let response = chakram.post(config.target, { "_length": 0 });
     expect(response).to.have.status(200);
     expect(response).to.have.header("content-type", "application/json");
     return chakram.wait();
   });
 
   it("with object", function () {
-    let response = chakram.post(config.target, {pattern: 'chakram'});
+    let response = chakram.post(config.target, { pattern: 'chakram' });
     expect(response).to.have.status(200);
     expect(response).to.have.header("content-type", "application/json");
     return chakram.wait();
   });
 
   it("with array of object with params", function () {
-    let response = chakram.post(config.target, {"_length": 5, test: "sdff", poi: "date", "_poi": {year: 1983}});
+    let response = chakram.post(config.target, { "_length": 5, test: "sdff", poi: "date", "_poi": { year: 1983 } });
     expect(response).to.have.status(200);
     expect(response).to.have.header("content-type", "application/json");
-    expect(response).to.have.schema({"type": "array"});
+    expect(response).to.have.schema({ "type": "array" });
     return chakram.wait();
   });
 
   it("with value number typed", function () {
-    let response = chakram.post(config.target, {test1: 0});
+    let response = chakram.post(config.target, { test1: 0 });
     expect(response).to.have.status(200);
     expect(response).to.have.header("content-type", "application/json");
     return chakram.wait();
   });
 
   it("with two levels array of object", function () {
-    let response = chakram.post(config.target, {"_length": 5, test: "sdff", poi: "date", inside: {"_length": 5, test: "sdff", poi: "date"}});
+    let response = chakram.post(config.target, { "_length": 5, test: "sdff", poi: "date", inside: { "_length": 5, test: "sdff", poi: "date" } });
     expect(response).to.have.status(200);
     expect(response).to.have.header("content-type", "application/json");
-    expect(response).to.have.schema({"type": "array"});
+    expect(response).to.have.schema({ "type": "array" });
     return chakram.wait();
   });
 });

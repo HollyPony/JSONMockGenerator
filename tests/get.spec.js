@@ -10,7 +10,7 @@ let expect = chakram.expect;
 let config = require('./config.js');
 let common = require('./common.spec');
 
-describe("GET", function() {
+describe("GET", function () {
 
   before(done => {
     console.log("before get");
@@ -28,7 +28,7 @@ describe("GET", function() {
     let response = chakram.get(config.target + "?test=chakram");
     expect(response).to.have.status(200);
     expect(response).to.have.header("content-type", "application/json");
-    expect(response).to.comprise.of.json({test: "chakram" });
+    expect(response).to.comprise.of.json({ test: "chakram" });
     return chakram.wait();
   });
 });
