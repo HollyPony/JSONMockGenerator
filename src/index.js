@@ -1,7 +1,6 @@
 const restify = require('restify');
 const corsMiddleware = require('restify-cors-middleware');
 const Chance = require('chance');
-const logger = require('morgan');
 
 const cors = corsMiddleware({})
 const chance = new Chance();
@@ -11,7 +10,6 @@ server.pre(cors.preflight);
 
 server.use(restify.plugins.queryParser());
 server.use(restify.plugins.bodyParser());
-server.use(logger('common'));
 server.use(cors.actual);
 
 server.get('/*', parseRequest);
@@ -25,7 +23,6 @@ server.listen(process.env.PORT || 8080, () => {
 
 function parseRequest(req, res, next) {
   const result = parseParams(Object.assign({}, req.query, req.body));
-  console.log(result);
   res.send(result);
   next();
 }
@@ -35,7 +32,7 @@ function parseParams(params) {
     return parseObject({});
   } else if (typeof params === "string") {
     return params;
-  } else if (params['_length'] && parseInt(params['_length']) > 1) {
+  } else if (params['_length'] !== undefined) {
     return Array.apply(null, new Array(parseInt(params['_length']))).map(() => parseObject(params));
   } else {
     return parseObject(params);

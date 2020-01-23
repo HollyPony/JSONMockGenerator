@@ -6,7 +6,8 @@ module.exports = {
   }
   ,
   env: {
-    "node": true
+    "node": true,
+    "mocha": true
   }
   ,
   rules: {
