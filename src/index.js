@@ -1,26 +1,30 @@
 const restify = require('restify');
+const corsMiddleware = require('restify-cors-middleware');
 const Chance = require('chance');
 const logger = require('morgan');
 
+const cors = corsMiddleware({})
 const chance = new Chance();
 
 const server = restify.createServer();
-server.use(restify.CORS());
-server.use(restify.queryParser());
-server.use(restify.bodyParser());
-server.use(logger('common'));
+server.pre(cors.preflight);
 
-server.get(/.*/, parseRequest);
-server.post(/.*/, parseRequest);
-server.put(/.*/, parseRequest);
-server.del(/.*/, parseRequest);
+server.use(restify.plugins.queryParser());
+server.use(restify.plugins.bodyParser());
+server.use(logger('common'));
+server.use(cors.actual);
+
+server.get('/*', parseRequest);
+server.post('/*', parseRequest);
+server.put('/*', parseRequest);
+server.del('/*', parseRequest);
 
 server.listen(process.env.PORT || 8080, () => {
   console.log('%s listening at %s', server.name, server.url);
 });
 
 function parseRequest(req, res, next) {
-  const result = parseParams(req.params);
+  const result = parseParams(Object.assign({}, req.query, req.body));
   console.log(result);
   res.send(result);
   next();
@@ -52,7 +56,7 @@ function parseObject(obj) {
           : value
         : parseParams(value);
   });
-  return Object.keys(result).length > 0 && result || {id: chance.natural()};
+  return Object.keys(result).length > 0 && result || { id: chance.natural() };
 }
 
 module.exports = server;

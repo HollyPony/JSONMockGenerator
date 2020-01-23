@@ -34,9 +34,10 @@
     "chakram": "1.5.0",
     "chance": "1.0.10",
     "eslint": "4.3.0",
-    "mocha": "3.4.2",
-    "morgan": "1.8.2",
-    "nodemon": "1.11.0",
-    "restify": "4.3.1"
+    "mocha": "^7.0.0",
+    "morgan": "^1.9.1",
+    "nodemon": "^2.0.2",
+    "restify": "^8.5.1",
+    "restify-cors-middleware": "^1.1.1"
   }
 }
