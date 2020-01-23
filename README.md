@@ -31,12 +31,13 @@ Most of features are shown as sample. For further documentation refer to [Chance
 
 ### Get a random object
 
-Call:
+#### Input (random object)
 
-- Local test: [`GET localhost:8080`](http://localhost:8080)
-- Online demo: [`GET jmgen.herokuapp.com`](https://jmgen.herokuapp.com)
+```json
+{}
+```
 
-Result:
+#### Output (random object)
 
 ```json
 {
@@ -44,14 +45,22 @@ Result:
 }
 ```
 
+#### Demo (random object)
+
+- Local test: [`GET localhost:8080`](http://localhost:8080)
+- Online demo: [`GET jmgen.herokuapp.com`](https://jmgen.herokuapp.com)
+
 ### Get a list
 
-Call:
+#### Input (list)
 
-- [`GET localhost:8080?_length=3`](http://localhost:8080?_length=3)
-- [`GET jmgen.herokuapp.com?_length=3`](https://jmgen.herokuapp.com?_length=3)
+```json
+{
+  "_length": 3
+}
+```
 
-Result:
+#### Output (list)
 
 ```json
 [
@@ -61,9 +70,14 @@ Result:
 ]
 ```
 
+#### Demo (list)
+
+- [`GET localhost:8080?_length=3`](http://localhost:8080?_length=3)
+- [`GET jmgen.herokuapp.com?_length=3`](https://jmgen.herokuapp.com?_length=3)
+
 ### Get an object
 
-Call:
+#### Input (object)
 
 ```json
 {
@@ -74,10 +88,7 @@ Call:
 }
 ```
 
-- Local test: [localhost:8080/?name=name&date=birthday&cite=city&genre=male](http://localhost:8080/?name=name&date=birthday&cite=city&genre=male)
-- Online demo: [jmgen.herokuapp.com/?name=name&date=birthday&cite=city&genre=male](https://jmgen.herokuapp.com/?name=name&date=birthday&cite=city&genre=male)
-
-Result:
+#### Output (object)
 
 ```json
 {
@@ -88,9 +99,14 @@ Result:
 }
 ```
 
+#### Demo (object)
+
+- Local test: [localhost:8080/?name=name&date=birthday&cite=city&genre=male](http://localhost:8080/?name=name&date=birthday&cite=city&genre=male)
+- Online demo: [jmgen.herokuapp.com/?name=name&date=birthday&cite=city&genre=male](https://jmgen.herokuapp.com/?name=name&date=birthday&cite=city&genre=male)
+
 ### Get an object list
 
-Call:
+#### Input (object list)
 
 ```json
 {
@@ -102,10 +118,7 @@ Call:
 }
 ```
 
-- Local test: [`GET localhost:8080/?_length=3&name=name&date=birthday&city=city&genre=male`](http://localhost:8080/?_length=3&name=name&date=birthday&city=city&genre=male)
-- Online demo: [`GET jmgen.herokuapp.com/?_length=3&name=name&date=birthday&city=city&genre=male`](https://jmgen.herokuapp.com/?_length=3&name=name&date=birthday&city=city&genre=male)
-
-Result:
+#### Output (object list)
 
 ```json
 [
@@ -129,6 +142,11 @@ Result:
   }
 ]
 ```
+
+#### Demo (object list)
+
+- Local test: [`GET localhost:8080/?_length=3&name=name&date=birthday&city=city&genre=male`](http://localhost:8080/?_length=3&name=name&date=birthday&city=city&genre=male)
+- Online demo: [`GET jmgen.herokuapp.com/?_length=3&name=name&date=birthday&city=city&genre=male`](https://jmgen.herokuapp.com/?_length=3&name=name&date=birthday&city=city&genre=male)
 
 ## Roadmap
 
